@@ -5,19 +5,26 @@
  */
 package serializzazione;
 
+import java.io.Serializable;
+
 /**
  *
  * @author parrarodriguez.manue
  */
-public class Studente {
-    private String nome, cognome, registro;
+public class Studente implements Serializable {
+    private String nome, cognome; 
+    private final String registro;
     private int eta;
 
-    public Studente(String nome, String cognome, String registro, int eta) {
+    public Studente(String nome, String cognome, String registro) {
         this.nome = nome;
         this.cognome = cognome;
-        this.eta = eta;
         this.registro = registro;
+    }
+    
+    @Override
+    public String toString(){
+        return "Studente = nome : "+nome+", cognome : "+cognome+", eta : "+eta+", registro = "+registro+";";
     }
 
     public String getNome() {
@@ -39,17 +46,4 @@ public class Studente {
     public String getRegistro() {
         return registro;
     }
-
-    public void setRegistro(String registro) {
-        this.registro = registro;
-    }
-
-    public int getEta() {
-        return eta;
-    }
-
-    public void setEta(int eta) {
-        this.eta = eta;
-    }
-    
 }
